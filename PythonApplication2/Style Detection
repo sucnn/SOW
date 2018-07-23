@@ -1,0 +1,18 @@
+from docx import *
+document = Document('abc.docx')
+
+styles = document.styles
+#read paragraph 
+for par in document.paragraphs: 
+        pri = str(par.style.name)+" : "+str(par.text)
+        print(pri)
+        
+b=1
+#read table 
+for table in document.tables:
+    for row in table.rows:
+        for cell in row.cells:
+            for paragraph in cell.paragraphs:
+               pri = str(b)+" : "+str(paragraph.text)
+               print(pri)
+               b=b+1
