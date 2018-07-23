@@ -1,19 +1,25 @@
 from docx import *
 document = Document('abc.docx')
 
+a=1
 #read paragraph 
 for par in document.paragraphs: 
     pa=par.text
-    print(pa)
+    pri = str(a)+" : "+str(pa)
+    print(pri)
+    a=a+1
 
+b=1
 #read table 
 for table in document.tables:
     for row in table.rows:
         for cell in row.cells:
             for paragraph in cell.paragraphs:
-                print(paragraph.text)
+                pri = str(b)+" : "+str(paragraph.text)
+                print(pri)
+                b=b+1
 
-
+print()
 #Author 
 print(document.core_properties.author)
 
